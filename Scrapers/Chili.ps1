@@ -19,6 +19,9 @@ $toRemove | ForEach-Object{
 # Only get the menu for today
 $sourceToday = Get-TextBetweenStrings -inputString $source -startString (Get-Weekday -language swe) -endString (Get-Weekday -language swe -tomorrow)
 
+# Clear the array if another scraper has populated it
+$menuItems = @()
+
 # Parse the menu to array
 $menuItems = (Get-TextBetweenStringsAll -inputString $sourceToday -startString "br>" -endString "<").trim()| Where-Object { $PSItem -ne "" }| ForEach-Object { (Get-Culture).TextInfo.ToTitleCase($PSItem) }
 

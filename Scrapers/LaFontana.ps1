@@ -17,6 +17,9 @@ $source = $source.replace('<p class="elementor-price-list-description">', "<br>"
 # Only get the menu for today
 $sourceToday = (Get-TextBetweenStrings -inputString $source -startString (Get-Weekday -language swe) -endString (Get-Weekday -language swe -tomorrow))
 
+# Clear the array if another scraper has populated it
+$menuItems = @()
+
 # Parse the menu items
 $menuItems = (Get-TextBetweenStringsAll -inputString $sourceToday -startString "<br>" -endString "`n").trim()| Where-Object { $PSItem -ne "" }| ForEach-Object { (Get-Culture).TextInfo.ToTitleCase($PSItem) }
 

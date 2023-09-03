@@ -47,7 +47,4 @@ $rawItems|ForEach-Object{
 
 $menuItems = ($menuItems | Select -Unique | ForEach-Object { (Get-Culture).TextInfo.ToTitleCase($PSItem.ToLower()) })
 
-$menuItems
-
-
 $menu["$lunchaID"] = $menuItems

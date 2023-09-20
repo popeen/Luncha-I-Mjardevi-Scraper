@@ -1,7 +1,7 @@
 # Luncha-I-Mjardevi-Scraper
 This repo contains the scrapers used by [lunchaimjardevi.com](https://lunchaimjardevi.com).  
 They are set up to be used within a [Powershell Universal](https://ironmansoftware.com/powershell-universal) server.  
-The only thing missing in this repo is the file PushToDB.ps1 that is used only for uploading the info to the database
+The only thing missing in this repo is the file PushToDB.ps1that is used only for uploading the info to the database and a PSU secret variable containing the OCR API key
 
 I am making this open source mainly to make it easier for others to contribute their favorite restaurants and because people have asked how it works.
 

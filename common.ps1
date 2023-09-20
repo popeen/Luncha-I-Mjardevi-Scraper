@@ -85,6 +85,24 @@ function Get-Weekday{
 
 }
 
+function Invoke-OcrOnlineImage{
+    param(
+        [ValidateSet("swe", "eng")]
+        [String]$Language = "eng",
+        [String]$Url
+    )
+    
+    $ocrApiKey = $secret:API_KEY_OCR_SPACE
+
+    $form = @{
+        language = $Language
+        url = $Url
+    }
+    
+    return Invoke-RestMethod -Method Post -Uri "https://api.ocr.space/Parse/Image" -Headers @{apikey = $ocrApiKey} -Form $form | Select-Object -ExpandProperty ParsedResults | Select-Object -ExpandProperty ParsedText
+
+}
+
 function Remove-HtmlTags {
     param (
         [string]$inputString
@@ -92,4 +110,17 @@ function Remove-HtmlTags {
     
     $cleanedString = [Regex]::Replace($inputString, "<.*?>", "")
     return $cleanedString
+}
+
+function Set-FirstLetterCapital{
+    param(
+        [string]$string,
+        [switch]$lowerRest
+    )
+    $firstLetter = $string.Substring(0,1).ToUpper()
+    $restOfTheString = $string.Substring(1)
+
+    if($lowerRest){ $restOfTheString = $restOfTheString.ToLower() }
+
+    $($firstLetter + $restOfTheString)
 }

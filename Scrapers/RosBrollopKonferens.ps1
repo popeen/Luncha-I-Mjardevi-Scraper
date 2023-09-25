@@ -1,4 +1,5 @@
 ﻿# Import common code
+Write-Host "Ros Start"
 if(-not $commonLoaded){
     . Luncha/common.ps1
 }
@@ -24,3 +25,4 @@ if($source -notlike "*Vi har stängt pga renovering*"){
     # Scrape the website and add todays menu as an array to the $menu hashtable using $lunchaID as the key
     $menu["$lunchaID"] = $menuItems
 }
+Write-Host "Ros Stop"

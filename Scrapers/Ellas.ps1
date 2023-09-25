@@ -1,4 +1,5 @@
 ﻿# Import common code
+Write-Host "Ellas Start"
 if(-not $commonLoaded){
     . Luncha/common.ps1
 }
@@ -14,3 +15,4 @@ $menuItems = Get-TextBetweenStringsAll -inputString $daySource -startString "<b>
 
 # Create a blank array for todays menu that we can populate in the loop below
 $menu["$lunchaID"] = $menuItems
+Write-Host "Ellas Stop"

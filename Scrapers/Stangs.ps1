@@ -1,4 +1,5 @@
 ﻿# Import common code
+Write-Host "Stångs Start"
 if(-not $commonLoaded){
     . Luncha/common.ps1
 }
@@ -48,3 +49,4 @@ $rawItems|ForEach-Object{
 $menuItems = ($menuItems | Select -Unique | ForEach-Object { (Get-Culture).TextInfo.ToTitleCase($PSItem.ToLower()) })
 
 $menu["$lunchaID"] = $menuItems
+Write-Host "Stångs Stop"

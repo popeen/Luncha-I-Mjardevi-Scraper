@@ -1,4 +1,5 @@
 ﻿# Import common code
+Write-Host "Husman Start"
 if(-not $commonLoaded){
     . Luncha/common.ps1
 }
@@ -47,3 +48,4 @@ if(-not ($source -like "*Kan inte hitta någon lunch*")){
 
     }
 }
+Write-Host "Husman Stop"

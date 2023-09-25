@@ -1,4 +1,5 @@
 ﻿# Import common code
+Write-Host "PegsTails Start"
 if(-not $commonLoaded){
     . Luncha/common.ps1
 }
@@ -37,3 +38,4 @@ $menuItems += "$($todayFoodItem[0]) - $($todayFoodItem[1])"
 
 # Scrape the website and add todays menu as an array to the $menu hashtable using $lunchaID as the key
 $menu["$lunchaID"] = $menuItems
+Write-Host "PegsTails Stop"

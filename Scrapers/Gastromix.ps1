@@ -1,4 +1,5 @@
 ﻿# Import common code
+Write-Host "Gastromix Start"
 if(-not $commonLoaded){
     . Luncha/common.ps1
 }
@@ -16,3 +17,4 @@ if($(Get-Weekday -Language "swe") -ne "Måndag"){
     # Create a blank array for todays menu that we can populate in the loop below
     $menu["$lunchaID"] = $menuItems
 }
+Write-Host "Gastromix Stop"

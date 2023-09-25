@@ -1,4 +1,5 @@
 ﻿# Import common code
+Write-Host "Chili Lime Start"
 if(-not $commonLoaded){
     . Luncha/common.ps1
 }
@@ -28,3 +29,4 @@ $menuItems = (Get-TextBetweenStringsAll -inputString $sourceToday -startString "
 
 # Scrape the website and add todays menu as an array to the $menu hashtable using $lunchaID as the key
 $menu["$lunchaID"] = $menuItems
+Write-Host "Chili Lime Stop"

@@ -1,4 +1,5 @@
 ﻿# Import common code
+Write-Host "Trucken Start"
 if(-not $commonLoaded){
     . Luncha/common.ps1
 }
@@ -27,3 +28,4 @@ foreach($item in $items){
 }
 
 $menu["$lunchaID"] = $menuItems
+Write-Host "Trucken Stop"

@@ -1,4 +1,5 @@
 ﻿# Import common code
+Write-Host "Torn1 Start"
 if(-not $commonLoaded){
     . Luncha/common.ps1
 }
@@ -14,6 +15,7 @@ $menuImage = Get-TextBetweenStrings -inputString $source -startString 'menu-img"
 $ocrSource = Invoke-OcrOnlineImage -Language "swe" -Url $menuImage
 $ocrSource = $ocrSource.replace("VECKANS DESSERT", "LÖRDAG");
 $ocrSource = $ocrSource -replace 'VECKA \d+', ''
+$ocrSource = $ocrSource.Replace("MANDAG", "MÅNDAG")
 
 # Get todays menu
 $today = (Get-Weekday -Language "swe").toUpper()
@@ -36,6 +38,7 @@ $menuItems = $menuItems|Foreach-Object{
     $item = $PSItem.replace("`r", "").replace("`n", " ").replace("/ ", ",")
     Set-FirstLetterCapital -String $item -LowerRest
 }
-$menuItems
+
 # Add to the $menu hashtable
-$menu["$lunchaID"] = $menuItems
+$menu["$lunchaID"] = @($menuItems)
+Write-Host "Torn1 Stop"
